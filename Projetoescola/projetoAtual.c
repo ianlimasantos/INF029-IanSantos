@@ -7,7 +7,7 @@
 
 /**/
 /*Comando para copiar o código*/
-/*gcc v03.c -o v03 -Wno-unused-result*/
+/*gcc projetoAtual.c -o projetoAtual -Wno-unused-result*/
 // Struct de data
 typedef struct dataNascimento
 {
@@ -35,6 +35,14 @@ typedef struct dadosProfessores
   char cpf[16];
 } professor;
 
+typedef struct materias{
+  char nome[50];
+  char codigo[50];
+  int semestre;
+  professor docente;
+
+} disciplina;
+
 // Prototipos das funcoes
 int menu_principal();
 int menu_discentes();
@@ -49,6 +57,8 @@ int validarSexo(aluno lista_de_alunos[], int qtd_aluno);
 int validarSexoProf(professor lista_de_professores[], int qtd_professor);
 int excluirDiscente(aluno lista_de_alunos[], int qtd_aluno); 
 int validaDataProf(professor lista_de_professores[], int qtd_professor);
+void ordem_alfabetica_prof (professor lista_de_professores[], int qtd_professor);
+
 
 int main()
 {
@@ -107,6 +117,10 @@ int main()
           getchar();
           system("cls || clear");
           break;
+
+        case 4:
+          
+          break;
         case 6:
           excluirDiscente(lista_de_alunos, qtd_aluno);
           break; 
@@ -154,6 +168,12 @@ int main()
           getchar();
           system("cls || clear");
           break;
+          
+      case 4:
+          ordem_alfabetica_prof(lista_de_professores,  qtd_professor);  
+          printf("Pressione uma tecla para voltar...");
+          getchar();
+          system("cls || clear");
         }  
       }while(opcao_prof != 0); 
       break; 
@@ -217,6 +237,31 @@ int menu_docentes(){
 
   return opcao_prof;
 }
+/*
+
+void ordem_alfabetica_prof (professor lista_de_professores, int qtd_professor){
+  int contador1, contador2, comparador;
+  
+  char auxiliar[80];
+
+  for (contador1 = 0; contador1<=qtd_professor; contador1++){
+    for (contador2 = contador1 + 1; contador2<=qtd_professor; contador2++){
+      comparador = strcmp(lista_de_professores[contador1].nome, lista_de_professores[contador2].nome);
+      if (comparador>0){
+        strcmp (auxiliar = lista_de_professores[contador2].nome);
+        strcmp (lista_de_professores[contador2].nome = lista_de_professores[contador1].nome);
+        strcmp (lista_de_professores[contador1].nome = auxiliar);
+  
+      }
+    }
+  }
+  for (contador1 = 0; contador1<=qtd_professor; contador1++){
+    printf ("%s", lista_de_professores[contador1].nome);
+  }
+}
+
+*/
+
 // Cadastros
 
 int cadastrarAluno(aluno lista_de_alunos[], int qtd_aluno)
