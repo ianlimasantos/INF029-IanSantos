@@ -2,7 +2,15 @@
 informar quantas vezes essa letra aparece no texto. Desconsidere acentos nas vogais. Ou seja, um
 'á' é igual a 'a'.*/
 
-int q3 (char texto, char letra)
+int q3 (char texto[], char letra){
+  int contador1, contador2;
+  for (contador1 = 0, contador2 = 0; contador2<=251; contador2++){
+    if (texto[contador2] == letra)
+      contador1++;
+  }
+
+  return contador1;
+}
 
 int q5 (int numero){
   
