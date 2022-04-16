@@ -21,7 +21,7 @@
 
 // #################################################
 
-#include <stdio.h>
+/*#include <stdio.h>
 #include "IanSantos-20212160022-T1.h" // Substitua pelo seu arquivo de header renomeado
 #include <stdlib.h>
 
@@ -29,18 +29,19 @@
 int q5 (int numero){
   
   int numero_invertido, resto, n1, n2, n3, n4, n5;
-
+  //95327
   n1 = numero/10000;
-  resto = numero%10000;
-  n2 = resto/1000;
-  resto = resto%1000;
-  n3 = resto/100;
-  resto = resto%100;
-  n4 = resto/10;
-  n5 = resto%10;
+  printf("%d", n1); 
+  numero = numero%10000;
+  n2 = numero/1000;
+  numero = numero%1000;
+  n3 = numero/100;
+  numero = numero%100;
+  n4 = numero/10;
+  n5 = numero%10;
 
   numero_invertido = (n5*10000 + n4*1000 + n3*100 + n2*10 + n1);
 
   return numero_invertido;
   
-}
+}*/
