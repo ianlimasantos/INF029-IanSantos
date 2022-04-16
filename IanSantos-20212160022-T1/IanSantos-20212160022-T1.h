@@ -7,6 +7,34 @@ int q3 (char texto[], char letra){
   for (contador1 = 0, contador2 = 0; contador2<=251; contador2++){
     if (texto[contador2] == letra)
       contador1++;
+    if (letra == 'a'){
+      if (texto[contador2] == 'à' || texto[contador2] == 'â' || 
+          texto[contador2] == 'á' || texto[contador2] == 'ã')
+          contador1++;
+    }
+
+    if (letra == 'e'){
+      if (texto[contador2] == 'è' || texto[contador2] == 'ê' || 
+          texto[contador2] == 'é')
+          contador1++;
+    }
+    if (letra == 'i'){
+      if (texto[contador2] == 'ì' || texto[contador2] == 'î' || 
+          texto[contador2] == 'í' )
+          contador1++;
+    }
+    if (letra == 'o'){
+      if (texto[contador2] == 'ò' || texto[contador2] == 'ô' || 
+          texto[contador2] == 'ó' || texto[contador2] == 'õ')
+          contador1++;
+    }
+    if (letra == 'u'){
+      if (texto[contador2] == 'ù' || texto[contador2] == 'û' || 
+          texto[contador2] == 'ú')
+          contador1++;
+    }
+    
+      
   }
 
   return contador1;
