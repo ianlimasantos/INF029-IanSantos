@@ -2,14 +2,14 @@
 informar quantas vezes essa letra aparece no texto. Desconsidere acentos nas vogais. Ou seja, um
 'á' é igual a 'a'.*/
 
-int q3 (char texto[], char letra){
+/*int q3 (char texto[], char letra){
   int contador1, contador2;
   for (contador1 = 0, contador2 = 0; contador2<=251; contador2++){
     if (texto[contador2] == letra)
       contador1++;
     if (letra == 'a'){
-      if (texto[contador2] == 'à' || texto[contador2] == 'â' || 
-          texto[contador2] == 'á' || texto[contador2] == 'ã')
+      if (texto[contador2] == "à" || texto[contador2] == "â" || 
+          texto[contador2] == "á" || texto[contador2] == "ã")
           contador1++;
     }
 
@@ -39,9 +39,32 @@ int q3 (char texto[], char letra){
 
   return contador1;
 }
+*/
 
-int q5 (int numero){
+int q4(char texto[], char palavra[]){
   
+  int i, j, k;
+  int tamanho_da_palavra;
+
+  tamanho_da_palavra = strnlen(palavra);
+  
+  for(i = 0, k=0; i < 250; i++, k++){
+    if(texto[i] == palavra[i]){
+      for (i = i, j = 0; texto[i] == palavra[i] && j <= tamanho_da_palavra; i++, j++){
+        if (j == tamanho_da_palavra ){
+            k++;
+          }
+      }      
+    }
+  }
+  return k;
+}
+
+
+
+/*
+int q5 (int numero){
+
   int numero_invertido, resto, n1, n2, n3, n4, n5;
 
   n1 = numero/10000;
@@ -58,4 +81,13 @@ int q5 (int numero){
   return numero_invertido;
   
 }
+
+*/
+
+
+/*Escreva uma função que determine quantas vezes um número K (de qualquer quantidade de
+dígitos) ocorre em um número natural N. Por exemplo:
+• O número 3 ocorre quatro vezes em 3539343.
+• O número 44 ocorre uma vez em 5444, e duas vezes em 54444
+• O número 23 ocorre duas vezes em 1234562354*/
 

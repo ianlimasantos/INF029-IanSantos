@@ -23,10 +23,24 @@
 
 /*#include <stdio.h>
 #include "IanSantos-20212160022-T1.h" // Substitua pelo seu arquivo de header renomeado
-#include <stdlib.h>
+#include <stdlib.h>*/
 
 
-int q5 (int numero){
+/*
+int q4(char texto[], char palavra[]){
+  for(i = 0; i < 250; i++){
+    if(texto[i] == palavra[i]){
+      for (i = i, j = 0; texto[i] == palavra[i] || j < Aquela_porra_do_strlen; i++, j++){
+        if (j ==   Aquela_porra_do_strlen - 1){
+            k++;
+          }
+      }      
+    }
+  }
+}
+*/
+
+/*int q5 (int numero){
   
   int numero_invertido, resto, n1, n2, n3, n4, n5;
   //95327
