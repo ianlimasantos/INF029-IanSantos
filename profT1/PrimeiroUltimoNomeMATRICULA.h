@@ -1,0 +1,1 @@
+int q4(char *strTexto, char *strBusca, int posicoes[30]);
