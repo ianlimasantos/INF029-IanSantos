@@ -156,80 +156,61 @@ return j;
 
 
 
-int q6 (int numero, int numero_buscado){
-
-  int contador, t1, t2, copia_numero, copia2_numero;
-  int i, s, m, k, n1, n2;
-  int j, n3, n4;
-
-  copia_numero = numero_buscado;
-  copia2_numero = numero_buscado;
- 
-  if (numero_buscado<10){
-    contador = 1;
-    printf ("O contador vale: %d\n", contador);
-  }
-  else{
-    for (contador = 0; copia_numero>=10; contador++){
-        t1 = copia_numero/10;
-        t2 = copia_numero%10;
-        copia_numero = t1;
-        if (t1<10){
-            t2 = t1;
-            contador++;
-        }
-    }
-  }
-  //printf("Contador: %d\n", contador);
- 
-    for (j = 0, k = 1, s = 0; k>0;  ){
-      n1 = numero/10;
-      n2 = numero%10;
-      numero = n1;
-      copia_numero = numero_buscado;
- 
-      if (n1 < 10){
-          n2 = n1;
-          k = -1;   
-      }
-      if (copia_numero>10)
-        t1 = copia_numero/10;
-        t2 = copia_numero%10;
-        copia_numero = t1;
-      
-      if (t1<10){
-        t2 = copia2_numero;
-        printf ("O T2 vale %d\n", t2);
-        }
-           
+int q6(int numerobase, int numerobusca)
+{
+    int qtdOcorrencias = 0;
+    int restonumerobase, restonumerobusca, contador, copia1, copia2;
    
-        if (n2 = t2){
-            for (m = 0, i = 0; m < contador && k > 0 && n2 == t2; m++, i++){
-                n1 = numero/10;
-                n2 = numero%10;
-                numero = n1;
-               
-           
-                if (n1<10){
-                    n2 = n1;
-                    k = -1;
+    //copia1 = numerobusca;
+    //copia2 = copia1;
+   
+    if (numerobase == 0 && numerobusca == 0)
+        qtdOcorrencias ++;
+       
+    while (numerobase > 0){
+      //      numerobusca = copia2;
+  /*1 */     restonumerobase = numerobase % 10;
+  /*2  */    restonumerobusca = numerobusca % 10;
+                printf ("######\n");
+                printf (" O resto numero base vale %d\n", restonumerobase);
+                printf (" O resto numero busca vale %d\n", restonumerobusca);
+                printf ("######\n");
+                printf ("***********\n");
+  /*3 */     if (restonumerobase == restonumerobusca){
+/*  4 */  
+  while (restonumerobase == restonumerobusca && numerobase>0 && numerobusca>0 && contador>0){
+/*  5  */           numerobase = numerobase / 10;
+ /* 6  */           numerobusca = numerobusca / 10;
+ /* 7  */           restonumerobase = numerobase % 10;
+ /* 8  */           restonumerobusca = numerobusca % 10;
+                    printf (" O numero base vale %d\n", numerobase);
+                    printf (" O numero busca vale %d\n", numerobusca);
+                    printf (" O resto numero base vale %d\n", restonumerobase);
+                    printf (" O resto numero busca vale %d\n", restonumerobusca);
+                   
+                   
+                if (restonumerobusca<10){
+                    restonumerobusca = numerobusca;
+                    contador = -1;
+                   
                 }
+ /* 9  */            if (contador<0){
+ /* 10 */               qtdOcorrencias ++;
+                        printf (" A quantidade de ocorrencias foi %d\n", qtdOcorrencias);
+                        numerobase = numerobase / 10;
+                       
+                    }
                
-                t1 = copia_numero/10;
-                t2 = copia_numero%10;
-                copia_numero = t1;
-                
-               
-                if (t1<10){
-                    t2 = t1;
-        
-                }                    
-                if (i = contador-1){
-                    s++;
-                }
             }
         }
+       else{
+        numerobase = numerobase / 10;
+       }
     }
-    printf ("s vale %d", s);
-    return i;
+
+    return qtdOcorrencias;
+   
+   
+   
+   
 }

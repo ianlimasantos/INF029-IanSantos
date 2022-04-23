@@ -15,8 +15,8 @@ int main (){
 
   //teste_q3();
   //teste_q4();
- // teste_q5();
-  teste_q6();
+  teste_q5();
+  //teste_q6();
   
 }
 
@@ -44,12 +44,12 @@ void teste_q4(){
 }
 
 
-/*void teste_q5(){
-  printf("%d\n", q5(12345) == 54321);
+void teste_q5(){
+  printf("%d\n", q5(1000) == 1);
   printf("%d\n", q5(15991) == 19951);
   printf("%d\n", q5(18963) == 16934);
 }
-*/
+
 
 void teste_q6(){
 //  printf ("%d\n", q6(12345, 5) == 1);
