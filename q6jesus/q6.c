@@ -23,10 +23,6 @@ int q6(int numerobase, int numerobusca){
       //      numerobusca = copia2;
         restonumerobase = numerobase % 10;
         restonumerobusca = numerobusca % 10;
-                printf ("######\n");
-                printf (" O resto numero base vale %d\n", restonumerobase);
-                printf (" O resto numero busca vale %d\n", restonumerobusca);
-                printf ("######\n");
                 
         if (restonumerobase == restonumerobusca){
           contador = 1;
@@ -35,27 +31,18 @@ int q6(int numerobase, int numerobusca){
               numerobusca = numerobusca / 10; //2; //
               restonumerobase = numerobase % 10; //2
               restonumerobusca = numerobusca % 10; //2 
-                  printf (" O numero base vale %d\n", numerobase);
-                  printf (" O numero busca vale %d\n", numerobusca);
-                  printf (" O resto numero base vale %d\n", restonumerobase);
-                  printf (" O resto numero busca vale %d\n", restonumerobusca);
-                   
-                   
+                  
                 if (numerobusca<10 && numerobusca == restonumerobase ){
                   restonumerobusca = numerobusca;
-                  printf (" - O resto numero busca vale %d\n", restonumerobusca);
                     contador = -1;
                    
                 }
               if (contador<0){
                 qtdOcorrencias ++;
-                printf (" A quantidade de ocorrencias foi %d\n", qtdOcorrencias);
+                //printf (" A quantidade de ocorrencias foi %d\n", qtdOcorrencias);
                 numerobase = numerobase / 10;//20222
                 numerobusca = copia1;
                         
-                printf ("AAAAAAAAAAAAAAAAA\n");
-                printf (" O numero base vale %d\n", numerobase);
-                printf ("AAAAAAAAAAAAAAAAA\n");
               }
                
             }
@@ -63,11 +50,6 @@ int q6(int numerobase, int numerobusca){
         else{
             numerobase = numerobase / 10; //202222 
             numerobusca = copia1;   //22
-
-            printf ("ELSE PRINTADO BBS\n");
-            printf (" O numero base vale %d\n", numerobase);
-            printf (" O numero busca vale %d\n", numerobusca);
-            printf ("ELSE PRINTADO BBS\n");
         }
     }
 printf (" A quantidade de ocorrencias foi %d\n", qtdOcorrencias);
