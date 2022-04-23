@@ -23,6 +23,10 @@ int q6(int numerobase, int numerobusca){
       //      numerobusca = copia2;
         restonumerobase = numerobase % 10;
         restonumerobusca = numerobusca % 10;
+                printf ("######\n");
+                printf (" O resto numero base vale %d\n", restonumerobase);
+                printf (" O resto numero busca vale %d\n", restonumerobusca);
+                printf ("######\n");
                 
         if (restonumerobase == restonumerobusca){
           contador = 1;
