@@ -32,16 +32,18 @@ int main (){
 }*/
 
 
+
 void teste_q3()
 {
     char str[250];
     strcpy(str, "Renato Lima Novais");
+    printf("%d\n", q3(str, 's', 1) == 1);
     printf("%d\n", q3(str, 'a', 0) == 3);
     printf("%d\n", q3(str, 'b', 0) == 0);
     printf("%d\n", q3(str, 'l', 1) == 0);
     printf("%d\n", q3(str, 'l', 0) == 1);
     printf("%d\n", q3(str, 'L', 0) == 1);
-    printf("%d\n", q3(str, 's', 1) == 1);
+    printf("%d\n", q3(str, 'i', 0) == 2);
 }
 
 
