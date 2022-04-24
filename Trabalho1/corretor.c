@@ -14,10 +14,10 @@ void teste_q6();
 
 int main (){
 
-  //teste_q3();
+  teste_q3();
   //teste_q4();
   //teste_q5();
-  teste_q6();
+ // teste_q6();
   
 }
 
@@ -41,6 +41,7 @@ void teste_q3()
     printf("%d\n", q3(str, 'l', 1) == 0);
     printf("%d\n", q3(str, 'l', 0) == 1);
     printf("%d\n", q3(str, 'L', 0) == 1);
+    printf("%d\n", q3(str, 's', 1) == 1);
 }
 
 
@@ -59,7 +60,6 @@ void teste_q5(){
 
 
 void teste_q6(){
-  printf ("AAAAA\n");
   printf ("%d\n", q6(12345, 5) == 1);
   printf ("%d\n", q6(5444, 44) == 1);
   printf ("%d\n", q6(544544, 44) == 2);

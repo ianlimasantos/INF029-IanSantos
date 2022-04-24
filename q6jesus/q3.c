@@ -8,7 +8,7 @@
 informar quantas vezes essa letra aparece no texto. Desconsidere acentos nas vogais. Ou seja, um
 'á' é igual a 'a'.*/
 
-char q3 (char texto[TAM], char letra);
+char q3 (char texto[TAM], char letra, int isCaseSensitive);
 
 int main(){
 
@@ -18,7 +18,7 @@ int main(){
 }
 
 
-char q3(char texto[], char letra){
+char q3(char texto[], char letra, int isCaseSensitive){
   int i, j, contador1, contador2;
   j = 0; 
   while(texto[j] != '\0'){

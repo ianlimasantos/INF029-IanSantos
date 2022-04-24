@@ -37,22 +37,30 @@ int q3 (char texto[], char letra, int casesensitive){
   while(texto[i] != '\0'){
     i++;
   }
-
-  if (casesensitive == 0){
-    for (contador1 = 0, contador2 = 0; contador1<i; contador1++){
-      if (texto[contador1] == letra)
+  
+  //for(k = 0; k < i; k++){
+   // printf("%c ", texto[k]); 
+  //}
+ // printf ("- ");
+  
+  if (casesensitive == 1){
+    for (contador1 = 0, contador2 = 0; contador1<=i; contador1++){
+      if (texto[contador1] == letra){
         contador2++; 
+      }
     }
   }  
 
   else {
     letra = toupper(letra);
-    for (contador1 = 0; contador1<i; contador1++){
-    texto[i] = toupper(texto[i]);
+    for (contador1 = 0; contador1<=i; contador1++){
+    texto[contador1] = toupper(texto[contador1]);
   }
-    for (contador1 = 0, contador2 = 0; contador1<i; contador1++){
-      if (texto[contador1] == letra)
+
+    for (contador1 = 0, contador2 = 0; contador1<=i; contador1++){
+      if (texto[contador1] == letra){
         contador2++;
+      }
     }
     
   }
@@ -60,6 +68,10 @@ int q3 (char texto[], char letra, int casesensitive){
   return contador2;
   
 }
+
+
+/* Faça um programa em que o usuário informa um texto de até 250 e uma palavra. Programa deve informar a posição inicial e final de todas as ocorrências da palavra no texto.
+*/
 
 /*
 
