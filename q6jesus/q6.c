@@ -5,7 +5,7 @@ int q6(int numerobase, int numerobusca);
 
 int main (){ 
   //q6(1434, 4);
-  q6(12111011, 11);
+  q6(3539343, 3);
 }
 
 
@@ -20,6 +20,7 @@ int q6(int numerobase, int numerobusca){
       qtdOcorrencias ++;
        
     while (numerobase > 0){
+      
       //      numerobusca = copia2;
         restonumerobase = numerobase % 10;
         restonumerobusca = numerobusca % 10;

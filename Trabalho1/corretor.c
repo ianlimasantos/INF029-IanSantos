@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "IanSantos20212160022.h"
 
 // gcc IanSantos20212160022.c corretor.c -o T1
@@ -13,9 +14,9 @@ void teste_q6();
 
 int main (){
 
-  //teste_q3();
+  teste_q3();
   //teste_q4();
-  teste_q5();
+  //teste_q5();
   //teste_q6();
   
 }
@@ -30,13 +31,19 @@ int main (){
   
 }*/
 
-/*
-void teste_q3(){
-  
-char texto[251] = "Prato frito feito farofa fazendo fiado ficarei freguês";
-char letra = 'e';
-printf("A quantidade de vezes é %d\n", q3(texto, letra));  
-}*/
+
+void teste_q3()
+{
+    char str[250];
+    strcpy(str, "Renato Lima Novais");
+    printf("%d\n", q3(str, 'a', 0) == 3);
+    printf("%d\n", q3(str, 'b', 0) == 0);
+    printf("%d\n", q3(str, 'l', 1) == 0);
+    printf("%d\n", q3(str, 'l', 0) == 1);
+    printf("%d\n", q3(str, 'L', 0) == 1);
+}
+
+
 
 void teste_q4(){
   printf ("%d\n", q4("A novela foi boa", "novela") == 1 );
