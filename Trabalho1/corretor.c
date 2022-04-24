@@ -14,10 +14,10 @@ void teste_q6();
 
 int main (){
 
-  teste_q3();
+  //teste_q3();
   //teste_q4();
   //teste_q5();
-  //teste_q6();
+  teste_q6();
   
 }
 
@@ -44,12 +44,12 @@ void teste_q3()
 }
 
 
-
+/*
 void teste_q4(){
   printf ("%d\n", q4("A novela foi boa", "novela") == 1 );
   
 }
-
+*/
 
 void teste_q5(){
   printf("%d\n", q5(1000) == 1);
@@ -59,11 +59,12 @@ void teste_q5(){
 
 
 void teste_q6(){
-//  printf ("%d\n", q6(12345, 5) == 1);
+  printf ("AAAAA\n");
+  printf ("%d\n", q6(12345, 5) == 1);
   printf ("%d\n", q6(5444, 44) == 1);
- /* printf ("%d\n", q6(544544, 44) == 2);
+  printf ("%d\n", q6(544544, 44) == 2);
   printf ("%d\n", q6(2222, 22) == 2);
   printf ("%d\n", q6(1235, 35) == 1);
   printf ("%d\n", q6(1235, 235) == 1);
-  */
+  printf ("%d\n", q6(1230, 3) == 1);
 }

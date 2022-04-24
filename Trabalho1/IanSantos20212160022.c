@@ -105,6 +105,68 @@ return numero_invertido;
 
 }
 
+int q6 (int numerobase, int numerobusca){
+  int qtdOcorrencias = 0;
+  int restonumerobase, restonumerobusca, contador, copia1;
+  int i = 0;
+
+  if (numerobusca<10){
+   while (numerobase > 0){
+        
+        restonumerobase = numerobase % 10;
+        if (restonumerobase == numerobusca) 
+        {
+          qtdOcorrencias ++;
+        }
+
+        numerobase = numerobase / 10;
+    }
+
+}
+
+
+
+
+
+
+
+ else { 
+  copia1 = numerobusca;
+   
+  if (numerobase == 0 && numerobusca == 0)
+    qtdOcorrencias ++;
+       
+  while (numerobase > 0){
+    restonumerobase = numerobase % 10;
+    restonumerobusca = numerobusca % 10;        
+      if (restonumerobase == restonumerobusca){
+          contador = 1;
+          while (restonumerobase == restonumerobusca && numerobase>0 && contador>0){
+            numerobase = numerobase / 10; 
+            numerobusca = numerobusca / 10; 
+            restonumerobase = numerobase % 10; 
+            restonumerobusca = numerobusca % 10;  
+              if (numerobusca<10 && numerobusca == restonumerobase ){
+                  restonumerobusca = numerobusca;
+                  contador = -1;
+              }
+              if (contador<0){
+                qtdOcorrencias ++;
+                numerobase = numerobase / 10;//20222
+                numerobusca = copia1;     
+              }
+               
+            }
+          }
+        else{
+            numerobase = numerobase / 10; //202222 
+            numerobusca = copia1;   //22
+        }
+    }
+   }
+    return qtdOcorrencias;
+}
+ 
 
 
 

@@ -7,7 +7,7 @@
 int q3 (char texto[], char letra, int casesensitive);
 int q4(char texto[], char palavra[]);
 int q5 (int numero);
-int q6 (int numero, int numero_buscado);
+int q6 (int numerobase, int numerobusca);
 
 
 #endif
