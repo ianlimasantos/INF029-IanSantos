@@ -93,6 +93,10 @@ int quebraData(char data[]){
   dq.iMes = atoi(sMes);
   dq.iAno = atoi(sAno); 
 
+    condicao1 = dq.iAno%4;
+    condicao2 = dq.iAno%100;
+    condicao3 = dq.iAno%400;
+  
   if (dq.iAno<100 && dq.iAno != 0 && dq.iAno == 0)
        anobissexto = 1;
   else if (dq.iAno>=100 && dq.iAno<= 400 && condicao1 == 0 && condicao2 != 0)
@@ -116,7 +120,7 @@ int quebraData(char data[]){
       contador1 = 0;
   }
 
-  else if (dq.iMes == 2 || dq.iMes == 4 || dq.iMes == 6 || dq.iMes == 9 || dq.iMes == 11){
+  else if (dq.iMes == 4 || dq.iMes == 6 || dq.iMes == 9 || dq.iMes == 11){
     contador2 = 1;
     if (dq.iDia >= 1 && dq.iDia<=30 ){
        contador1 = 1;
@@ -181,9 +185,24 @@ if (dq.iMes == 1 || dq.iMes == 3 || dq.iMes == 5 || dq.iMes == 7 || dq.iMes == 8
   }
   else 
     valor_retorno = 1;
-    
+
+  //printf ("O contador 1 vale %d \n", contador1);
+  //printf ("O anobissexto vale %d \n", anobissexto);
+  
   return valor_retorno;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 int q3 (char texto[], char letra, int casesensitive){
