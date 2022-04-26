@@ -28,6 +28,164 @@
 #include <ctype.h>
 #include "IanSantos20212160022.h"
 
+int q1 (char data[]){
+  
+  int valor = 0;
+  valor = quebraData(data);
+
+  return valor;
+}
+
+
+int quebraData(char data[]){
+  DataQuebrada dq;
+  int valor_retorno;
+  char sDia[3];
+	char sMes[3];
+	char sAno[5];
+	int i; 
+  int contador1, contador2, contador3;
+  int condicao1, condicao2, condicao3, anobissexto;
+
+	for (i = 0; data[i] != '/'; i++){
+		sDia[i] = data[i];	
+	}
+	if(i == 1 || i == 2){ // testa se tem 1 ou dois digitos
+		sDia[i] = '\0';  // coloca o barra zero no final
+    contador1 = 1;
+	}else {
+		contador1 = 0;
+  }  
+	
+
+	int j = i + 1; //anda 1 cada para pular a barra
+	i = 0;
+
+	for (; data[j] != '/'; j++){
+		sMes[i] = data[j];
+		i++;
+	}
+
+	if(i == 1 || i == 2){ // testa se tem 1 ou dois digitos
+		sMes[i] = '\0';  // coloca o barra zero no final
+    contador2 = 1;
+	}else {
+    contador2 = 0;
+  }
+	
+
+	j = j + 1; //anda 1 cada para pular a barra
+	i = 0;
+	
+	for(; data[j] != '\0'; j++){
+	 	sAno[i] = data[j];
+	 	i++;
+	}
+
+	if(i == 2 || i == 4){ // testa se tem 2 ou 4 digitos
+		sAno[i] = '\0';  // coloca o barra zero no final
+    contador3 = 1;
+	}else {
+		contador3 = 0;
+  }
+
+  dq.iDia = atoi(sDia);
+  dq.iMes = atoi(sMes);
+  dq.iAno = atoi(sAno); 
+
+  if (dq.iAno<100 && dq.iAno != 0 && dq.iAno == 0)
+       anobissexto = 1;
+  else if (dq.iAno>=100 && dq.iAno<= 400 && condicao1 == 0 && condicao2 != 0)
+  anobissexto = 1;
+  else if(dq.iAno >= 400 && condicao1 == 0 && condicao2 != 0) // nesse if, o ano não é divisível por 100
+  anobissexto = 1;
+  else if(dq.iAno >= 400 && condicao1 == 0 && condicao2 == 0 && condicao3 == 0)
+    anobissexto = 1;
+  else 
+    anobissexto = 0;
+
+
+  
+  if(anobissexto == 0){
+  if (dq.iMes == 1 || dq.iMes == 3 || dq.iMes == 5 || dq.iMes == 7 || dq.iMes == 8  || dq.iMes == 10 || dq.iMes == 12){
+    contador2 = 1;
+    if (dq.iDia >= 1 && dq.iDia<=31 ){
+      contador1 = 1;
+    }
+    else 
+      contador1 = 0;
+  }
+
+  else if (dq.iMes == 2 || dq.iMes == 4 || dq.iMes == 6 || dq.iMes == 9 || dq.iMes == 11){
+    contador2 = 1;
+    if (dq.iDia >= 1 && dq.iDia<=30 ){
+       contador1 = 1;
+    }
+    else 
+      contador1 = 0;
+    
+  }
+
+  else if (dq.iMes == 2 ){
+    contador2 = 1;
+    if (dq.iDia >= 1 && dq.iDia<=28 ){
+      contador1 = 1;
+    }
+    else 
+      contador1 = 0;
+    
+  }
+    else{
+    contador1 = 0;
+    contador2 = 0;
+    
+    }
+}
+else {
+if (dq.iMes == 1 || dq.iMes == 3 || dq.iMes == 5 || dq.iMes == 7 || dq.iMes == 8  || dq.iMes == 10 || dq.iMes == 12){
+    contador2 = 1;
+    if (dq.iDia >= 1 && dq.iDia<=31 ){
+      contador1 = 1;
+    }
+    else
+      contador1 = 0;
+  }
+
+  else if (dq.iMes == 2 || dq.iMes == 4 || dq.iMes == 6 || dq.iMes == 9 || dq.iMes == 11){
+    contador2 = 1;
+    if (dq.iDia >= 1 && dq.iDia<=30 ){
+     contador1 = 1;
+    }
+    else
+      contador1 = 0;
+  }
+
+  else if (dq.iMes == 2){
+   if (dq.iDia >= 1 && dq.iDia<=29){
+      contador1 = 1;
+    }
+    else
+      contador1 = 0;
+  }
+  else{
+    contador1 = 0;
+    contador2 = 0;
+    }
+}
+
+// Marcador para mim
+
+    
+	if (contador1 == 0 || contador2 == 0 || contador3 == 0){
+    valor_retorno = 0;
+  }
+  else 
+    valor_retorno = 1;
+    
+  return valor_retorno;
+}
+
+
 int q3 (char texto[], char letra, int casesensitive){
 
 
@@ -135,13 +293,6 @@ int q6 (int numerobase, int numerobusca){
     }
 
 }
-
-
-
-
-
-
-
  else { 
   copia1 = numerobusca;
    
