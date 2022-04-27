@@ -50,15 +50,15 @@ int quebraData(char data[]){
 	for (i = 0; data[i] != '/'; i++){
 		sDia[i] = data[i];	
 	}
-	if(i == 1 || i == 2){ // testa se tem 1 ou dois digitos
-		sDia[i] = '\0';  // coloca o barra zero no final
+	if(i == 1 || i == 2){ 
+		sDia[i] = '\0';  
     contador1 = 1;
 	}else {
 		contador1 = 0;
   }  
 	
 
-	int j = i + 1; //anda 1 cada para pular a barra
+	int j = i + 1; 
 	i = 0;
 
 	for (; data[j] != '/'; j++){
@@ -66,15 +66,15 @@ int quebraData(char data[]){
 		i++;
 	}
 
-	if(i == 1 || i == 2){ // testa se tem 1 ou dois digitos
-		sMes[i] = '\0';  // coloca o barra zero no final
+	if(i == 1 || i == 2){ 
+		sMes[i] = '\0';  
     contador2 = 1;
 	}else {
     contador2 = 0;
   }
 	
 
-	j = j + 1; //anda 1 cada para pular a barra
+	j = j + 1; 
 	i = 0;
 	
 	for(; data[j] != '\0'; j++){
@@ -82,8 +82,8 @@ int quebraData(char data[]){
 	 	i++;
 	}
 
-	if(i == 2 || i == 4){ // testa se tem 2 ou 4 digitos
-		sAno[i] = '\0';  // coloca o barra zero no final
+	if(i == 2 || i == 4){ 
+		sAno[i] = '\0';  
     contador3 = 1;
 	}else {
 		contador3 = 0;
@@ -177,7 +177,6 @@ if (dq.iMes == 1 || dq.iMes == 3 || dq.iMes == 5 || dq.iMes == 7 || dq.iMes == 8
     }
 }
 
-// Marcador para mim
 
     
 	if (contador1 == 0 || contador2 == 0 || contador3 == 0){
@@ -186,20 +185,10 @@ if (dq.iMes == 1 || dq.iMes == 3 || dq.iMes == 5 || dq.iMes == 7 || dq.iMes == 8
   else 
     valor_retorno = 1;
 
-  //printf ("O contador 1 vale %d \n", contador1);
-  //printf ("O anobissexto vale %d \n", anobissexto);
+
   
   return valor_retorno;
 }
-
-
-
-
-
-
-
-
-
 
 
 
