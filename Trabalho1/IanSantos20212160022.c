@@ -267,7 +267,11 @@ int q4(char texto[], char palavra[]){
 int q5 (int numero){
   
   int i, n1, n2, numero_invertido;
-  
+
+  if (numero<10){
+    numero_invertido = numero;
+  }
+  else {
   for (i = 0, numero_invertido = 0; numero>=10; i++){
     n1 = numero/10;
     n2 = numero%10;
@@ -278,7 +282,7 @@ int q5 (int numero){
       }
     
   }
-
+    }
 return numero_invertido;
 
 }
