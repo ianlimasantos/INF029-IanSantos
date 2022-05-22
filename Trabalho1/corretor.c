@@ -13,10 +13,10 @@ void teste_q6();
 
 int main (){
 
-  teste_q1();
-//teste_q3();
-//  teste_q5();
- // teste_q6();
+ teste_q1();
+ teste_q3();
+ teste_q5();
+ teste_q6();
   
 }
 
@@ -24,18 +24,28 @@ void teste_q1()
 {
   
     char str[11];
-    strcpy(str, "29/02/2015");
-    printf("%d\n", q1(str) == 0);
-    strcpy(str, "29/02/2012");
-    printf("%d\n", q1(str) == 1);
-    strcpy(str, "9/13/2014");
-    printf("%d\n", q1(str) == 0);
-    strcpy(str, "45/4/2014");
-    printf("%d\n", q1(str) == 0);
-    strcpy(str, "/9/2014");
-    printf("%d\n", q1(str) == 0);
+    strcpy(str,"29/02/2015");
+    printf("%d\n",q1(str) == 0);
+    strcpy(str,"29/02/2012");
+    printf("%d\n",q1(str) == 1);
+    strcpy(str,"9/13/2014");
+    printf("%d\n",q1(str) == 0);
+    strcpy(str,"45/4/2014");
+    printf("%d\n",q1(str) == 0);
+    strcpy(str,"12/1/15");
+    printf("%d\n",q1(str) == 1);
+    strcpy(str,"1/9/2016");
+    printf("%d\n",q1(str) == 1);
+    strcpy(str,"//2016");
+    printf("%d\n",q1(str) == 0);
+    strcpy(str,"1//20");
+    printf("%d\n",q1(str) == 0);
+    strcpy(str,"1/R/2016");
+    printf("%d\n",q1(str) == 0);
+    strcpy(str,"1/12/19");
+    printf("%d\n",q1(str) == 1); 
 
-
+  }
 
 
 void teste_q3()
@@ -48,6 +58,16 @@ void teste_q3()
     printf("%d\n",q3(str, 'l', 1) == 0);
     printf("%d\n",q3(str, 'l', 0) == 1);
     printf("%d\n",q3(str, 'L', 0) == 1);
+
+    strcpy(str,"Letícia, signifiCa fEliCIdADE");
+    printf("%d\n",q3(str, 'c', 0) == 3);
+    printf("%d\n",q3(str, 'C', 0) == 3);
+    printf("%d\n",q3(str, 'c', 1) == 1);
+    printf("%d\n",q3(str, 'C', 1) == 2);
+    printf("%d\n",q3(str, 'R', 0) == 0);
+    printf("%d\n",q3(str, 'e', 0) == 3);
+    printf("%d\n",q3(str, 'E', 1) == 2);
+    printf("%d\n",q3(str, 'S', 1) == 0);
 
 }
 
