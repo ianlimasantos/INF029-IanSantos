@@ -5,18 +5,16 @@
 
 // gcc EstruturaVetores.c mainTeste.c -o trabalho2 -Wno-unused-result
 
+// gcc alteracao.c mainTeste.c -o trabalho2
+
 void show_log(char *str);
 void inicializar ();
 void testeInserirSemNada();
-int inserirNumeroEmEstrutura (int posicao, int tamanho);
 void testeCriarEstrutura();
-
-/*
-inserirNumeroEmEstrutura ()
 void testeInserirComEstrutura();
 void testeExcluir();
 void testeExcluirNumeroEspecifico();
-void testeListar();
+/*void testeListar();
 void testeRetornarTodosNumeros();
 void testeMudarTamanhoEstrutura();
 void testeListaEncadeada();
@@ -24,14 +22,13 @@ void testeListaEncadeada();
 
 int main()
 {
-    inicializar();
-    testeInserirSemNada();
-    
-    testeCriarEstrutura();
-    /*testeInserirComEstrutura();
-    testeExcluir();
+   inicializar();
+   testeInserirSemNada();
+   testeCriarEstrutura();
+   testeInserirComEstrutura();
+  testeExcluir();
     testeExcluirNumeroEspecifico();
-    testeListar();
+    /*testeListar();
     testeRetornarTodosNumeros();
     testeMudarTamanhoEstrutura();
     testeListaEncadeada();
@@ -73,21 +70,22 @@ void testeCriarEstrutura()
     printf("%d\n", criarEstruturaAuxiliar(2, 6) == JA_TEM_ESTRUTURA_AUXILIAR);
 }
 
-/*
-2 [ , , ]
+
 
 
 void testeInserirComEstrutura()
 {
     show_log("testeInserirComEstrutura()");
-    //###  int inserirNumeroEmEstrutura(int valor, int posicao); ###
+    //###  int inserirNumeroEmEstrutura(int posicao, int valor); ###
     printf("%d\n", inserirNumeroEmEstrutura(2, 4) == SUCESSO);
     printf("%d\n", inserirNumeroEmEstrutura(2, -2) == SUCESSO);
     printf("%d\n", inserirNumeroEmEstrutura(2, 6) == SUCESSO);
     printf("%d\n", inserirNumeroEmEstrutura(2, 5) == SEM_ESPACO);
+   
 }
 
-2 [4,-2,6]
+
+//2 [4,-2,6]
 
 void testeExcluir()
 {
@@ -102,7 +100,7 @@ void testeExcluir()
 }
 
 
-2 [ , , ]
+
 
 
 void testeExcluirNumeroEspecifico()
@@ -118,7 +116,7 @@ void testeExcluirNumeroEspecifico()
     printf("%d\n", excluirNumeroEspecificoDeEstrutura(1, 2) == SEM_ESTRUTURA_AUXILIAR);
 }
 
-9 [ 4, , ] 
+/*
 
 
 void testeListar()

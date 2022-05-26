@@ -3,114 +3,102 @@
 #define TAM 10
 #include "EstruturaVetores.h"
 
-int *vetorPrincipal[TAM];
+
+struct dados{
+  int *vetorPrincipal;
+  int quantidade_de_elementos;
+  int tamanho; 
+}
+estrutura[TAM];
 
 void inicializar(){
   int i;
   for (i = 0; i<TAM ; i++){
-    vetorPrincipal[i] = NULL;
+    estrutura[i].vetorPrincipal = NULL;
   }
 }
 
-/*
-  printf ("Digite que posição você quer adicionar: ");
-  scanf ("%d", &posicao);
-
-  printf ("Digite quantos espaços de memória você quer: ");
-  scanf ("%d", &qtd);
-
-  vetorPrincipal[posicao] = (int*) malloc (qtd * sizeof(int));
-
-
-
-
-Objetivo: criar estrutura auxiliar na posição 'posicao'.
-com tamanho 'tamanho'
-Rertono (int)
-    1 - SUCESSO - criado com sucesso
-    2 - JA_TEM_ESTRUTURA_AUXILIAR - já tem estrutura na posição
-    3 - POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
-    4 - SEM_ESPACO_DE_MEMORIA - Sem espaço de memória
-    5 - TAMANHO_INVALIDO - o tamanho deve ser maior ou igual a 1
-*/
-
-int inserirNumeroEmEstrutura(int posicao, int tamanho){
-  int retorno;
-  if (vetorPrincipal[posicao] != NULL)
-      retorno = JA_TEM_ESTRUTURA_AUXILIAR;
-    else if (posicao>10 || posicao<1)
-      retorno = POSICAO_INVALIDA;
-    /// PENSAR NESSE CASO if (sizeof(tamanho)>
-    else if (tamanho < 1)
-      retorno = TAMANHO_INVALIDO;
-    else if (vetorPrincipal[posicao] == NULL)
-      retorno = SEM_ESTRUTURA_AUXILIAR;
-    else 
-      retorno = SUCESSO;
-
-  return retorno;
-}
-
-
 int criarEstruturaAuxiliar(int posicao, int tamanho)
 {
-
-  if (vetorPrincipal[posicao] != NULL)
+  int i; 
+  if (estrutura[posicao].vetorPrincipal != NULL)
     return JA_TEM_ESTRUTURA_AUXILIAR;
   else if (posicao>10 || posicao<1)
     return POSICAO_INVALIDA;
   else if (tamanho < 1)
     return TAMANHO_INVALIDO;
   else {
-    vetorPrincipal[posicao] = (int*) malloc(tamanho * sizeof(int));
+    estrutura[posicao].vetorPrincipal = (int*) malloc(tamanho * sizeof(int));
+    estrutura[posicao].tamanho = tamanho;
+    estrutura[posicao].quantidade_de_elementos = 0;
+    
     return SUCESSO;
     }
 }
 
-
-
-int inserirNumeroEstrutura(int posicao, int valor)
+int inserirNumeroEmEstrutura(int posicao, int valor)
 {
+    int i, j, retorno;
+    
+    if (posicao>10 || posicao<1)
+        retorno = POSICAO_INVALIDA;
+    else
+    {
+        // testar se existe a estrutura auxiliar
+        if (estrutura[posicao].vetorPrincipal != NULL)
+        {
+            if (estrutura[posicao].quantidade_de_elementos < estrutura[posicao].tamanho)
+            {
+              estrutura[posicao].vetorPrincipal[estrutura[posicao].quantidade_de_elementos] = valor;
+              estrutura[posicao].quantidade_de_elementos ++;    
+              retorno = SUCESSO;
+            }
+           else
+            {
+                retorno = SEM_ESPACO;
+            }
+          
+        } else
+        {
+          retorno = SEM_ESTRUTURA_AUXILIAR;
+        }
+  
+    }
+     
+
+
+    return retorno;
+}
+
+
+int excluirNumeroDoFinaldaEstrutura(int posicao)
+{
+  int retorno;
 
     if (posicao>10 || posicao<1)
         retorno = POSICAO_INVALIDA;
     else
     {
         // testar se existe a estrutura auxiliar
-        if (vetorPrincipal[posicao] != NULL)
+        if (estrutura[posicao].vetorPrincipal != NULL)
         {
-            if (temEspaco)
+            if (estrutura[posicao].quantidade_de_elementos > 0)
             {
-                //insere
-                retorno = SUCESSO;
+              estrutura[posicao].quantidade_de_elementos --;    
+              retorno = SUCESSO;
             }
-            else
+           else
             {
-                retorno = SEM_ESPACO;
+                retorno = ESTRUTURA_AUXILIAR_VAZIA;
             }
-        }
-        else
+          
+        } else
         {
-            retorno = SEM_ESTRUTURA_AUXILIAR;
+          retorno = SEM_ESTRUTURA_AUXILIAR;
         }
+  
     }
 
-    return retorno;
-}
-
-/*
-Objetivo: excluir o numero 'valor' da estrutura auxiliar no final da estrutura.
-ex: suponha os valores [3, 8, 7, 9,  ,  ]. Após excluir, a estrutura deve ficar da seguinte forma [3, 8, 7,  ,  ,  ].
-Obs. Esta é uma exclusão lógica
-Rertono (int)
-    SUCESSO - excluido com sucesso
-    ESTRUTURA_AUXILIAR_VAZIA - estrutura vazia
-    SEM_ESTRUTURA_AUXILIAR - Não tem estrutura auxiliar
-    POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
-
-int excluirNumeroDoFinaldaEstrutura(int posicao)
-{
-    int retorno = SUCESSO;
     return retorno;
 }
 
@@ -125,13 +113,60 @@ Rertono (int)
     SEM_ESTRUTURA_AUXILIAR - Não tem estrutura auxiliar
     NUMERO_INEXISTENTE - Número não existe
     POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
+*/
 
 int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
 {
-    int retorno = SUCESSO;
+  int i, j, retorno, achei;
+  
+if (posicao>10 || posicao<1)
+        retorno = POSICAO_INVALIDA;
+else
+{
+        // testar se existe a estrutura auxiliar
+  if (estrutura[posicao].vetorPrincipal != NULL)
+  {
+    if (estrutura[posicao].quantidade_de_elementos > 0)
+    {
+      for(i = 0, achei = 0; i < estrutura[posicao].quantidade_de_elementos && achei == 0 ; i++){
+        if (valor == estrutura[posicao].vetorPrincipal[i])
+          achei = 1;   
+      }
+
+      if (achei = 1)
+      {
+      /*preservo o valor do i de cima*/
+        for (  ; i <= estrutura[posicao].quantidade_de_elementos; i++){
+          estrutura[posicao].vetorPrincipal[i] = estrutura[posicao].vetorPrincipal[i+1];
+        }
+          estrutura[posicao].quantidade_de_elementos--;
+          retorno = SUCESSO;
+      } else 
+        retorno = NUMERO_INEXISTENTE;
+              
+              // VOU FAZER A BUSCA
+              // SE A BUSCA  = NUMERO, ACHEI
+              // SENÃO, NUMERO_INEXISTENTE
+      }
+      else
+      {
+        retorno = ESTRUTURA_AUXILIAR_VAZIA;
+      }
+          
+  } 
+  else
+  {
+    retorno = SEM_ESTRUTURA_AUXILIAR;
+  }
+  
+}
+
     return retorno;
 }
 
+
+
+/*
 // se posição é um valor válido {entre 1 e 10}
 int ehPosicaoValida(int posicao)
 {
