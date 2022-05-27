@@ -117,7 +117,7 @@ Rertono (int)
 
 int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
 {
-  int i, j, retorno, achei;
+  int i, retorno, achei;
   
 if (posicao>10 || posicao<1)
         retorno = POSICAO_INVALIDA;
@@ -131,13 +131,15 @@ else
       for(i = 0, achei = 0; i < estrutura[posicao].quantidade_de_elementos && achei == 0 ; i++){
         if (valor == estrutura[posicao].vetorPrincipal[i])
           achei = 1;   
+          
       }
 
       if (achei = 1)
       {
       /*preservo o valor do i de cima*/
-        for (  ; i <= estrutura[posicao].quantidade_de_elementos; i++){
+        for (  ; i < estrutura[posicao].quantidade_de_elementos; i++){
           estrutura[posicao].vetorPrincipal[i] = estrutura[posicao].vetorPrincipal[i+1];
+          printf (" valor: %d  ----", estrutura[posicao].vetorPrincipal[i]);
         }
           estrutura[posicao].quantidade_de_elementos--;
           retorno = SUCESSO;
@@ -187,15 +189,40 @@ Retorno (int)
     SUCESSO - recuperado com sucesso os valores da estrutura na posição 'posicao'
     SEM_ESTRUTURA_AUXILIAR - Não tem estrutura auxiliar
     POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
-
+*/
 int getDadosEstruturaAuxiliar(int posicao, int vetorAux[])
 {
 
-    int retorno = 0;
+    int i, retorno;
+    
+    if (posicao>10 || posicao<1)
+        retorno = POSICAO_INVALIDA;
+    else
+    {
+        // testar se existe a estrutura auxiliar
+        if (estrutura[posicao].vetorPrincipal != NULL)
+        {
+          if (estrutura[posicao].quantidade_de_elementos > 0){
+          for (i = 0; i < estrutura[posicao].quantidade_de_elementos; i++){
+           vetorAux[i] = estrutura[posicao].vetorPrincipal[i]  ;
+          }
+          retorno = SUCESSO;
+            }
+        }       
+         else
+        {
+          retorno = SEM_ESTRUTURA_AUXILIAR;
+        }
+  
+    }
+     
+
 
     return retorno;
 }
 
+
+/*
 
 Objetivo: retorna os números ordenados da estrutura auxiliar da posição 'posicao (1..10)'.
 os números devem ser armazenados em vetorAux
@@ -203,16 +230,49 @@ Rertono (int)
     SUCESSO - recuperado com sucesso os valores da estrutura na posição 'posicao (1..10)'
     SEM_ESTRUTURA_AUXILIAR - Não tem estrutura auxiliar
     POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
+*/
 
 int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[])
 {
-
-    int retorno = 0;
-
+  
+  int i, j, retorno, auxiliar;
+    
+    if (posicao>10 || posicao<1)
+        retorno = POSICAO_INVALIDA;
+    else
+    {
+        // testar se existe a estrutura auxiliar
+        if (estrutura[posicao].vetorPrincipal != NULL)
+        {
+          if (estrutura[posicao].quantidade_de_elementos > 0){
+           // for para fazer o vetor auxiliar assumir os valores
+            for (i = 0; i < estrutura[posicao].quantidade_de_elementos; i++)
+              vetorAux[i] = estrutura[posicao].vetorPrincipal[i];
+            // ordenação
+            for (i = 0; i < estrutura[posicao].quantidade_de_elementos; i++){
+            for (j = i + 1; j < estrutura[posicao].quantidade_de_elementos; j++){
+              if ( vetorAux[i] > vetorAux[j]){
+                auxiliar = vetorAux[i];
+                vetorAux[i] = vetorAux[j];
+                vetorAux[j] = auxiliar;
+              }
+            }
+          }
+            retorno = SUCESSO;
+          }
+        }         
+         else
+        {
+          retorno = SEM_ESTRUTURA_AUXILIAR;
+        }
+  
+    }
     
     return retorno;
 }
 
+
+/*
 
 Objetivo: retorna os números de todas as estruturas auxiliares.
 os números devem ser armazenados em vetorAux

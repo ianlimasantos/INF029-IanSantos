@@ -14,8 +14,8 @@ void testeCriarEstrutura();
 void testeInserirComEstrutura();
 void testeExcluir();
 void testeExcluirNumeroEspecifico();
-/*void testeListar();
-void testeRetornarTodosNumeros();
+void testeListar();
+/*void testeRetornarTodosNumeros();
 void testeMudarTamanhoEstrutura();
 void testeListaEncadeada();
 */
@@ -26,10 +26,10 @@ int main()
    testeInserirSemNada();
    testeCriarEstrutura();
    testeInserirComEstrutura();
-  testeExcluir();
+   testeExcluir();
     testeExcluirNumeroEspecifico();
-    /*testeListar();
-    testeRetornarTodosNumeros();
+    testeListar();
+    /*testeRetornarTodosNumeros();
     testeMudarTamanhoEstrutura();
     testeListaEncadeada();
     finalizar();
@@ -116,8 +116,6 @@ void testeExcluirNumeroEspecifico()
     printf("%d\n", excluirNumeroEspecificoDeEstrutura(1, 2) == SEM_ESTRUTURA_AUXILIAR);
 }
 
-/*
-
 
 void testeListar()
 {
@@ -140,18 +138,18 @@ void testeListar()
     printf("%d\n", getDadosOrdenadosEstruturaAuxiliar(2, vet) == SUCESSO);
 
     printf("%d\n", vet[0] == -9);
-    printf("%d\n", vet[1] == 7);
+    printf("%d\n", vet[1] == 7);// dá erro aqui
 
     printf("%d\n", getDadosEstruturaAuxiliar(2, vet) == SUCESSO);
 
     printf("%d\n", vet[0] == 7);
-    printf("%d\n", vet[1] == -9);
+    printf("%d\n", vet[1] == -9); // dá erro aqui
 
     printf("%d\n", excluirNumeroDoFinaldaEstrutura(2) == SUCESSO);
     printf("%d\n", excluirNumeroDoFinaldaEstrutura(2) == SUCESSO);
 }
 
-
+/*
 2 [ , , ]
 
 
