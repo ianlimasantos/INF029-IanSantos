@@ -323,7 +323,7 @@ Rertono (int)
 int getDadosOrdenadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
 
-  int i, contador = 0;
+  int i, auxiliar, contador = 0;
   int j, retorno = 0;
   
   for (i = 0; i<TAM; i++){
@@ -343,32 +343,22 @@ int getDadosOrdenadosDeTodasEstruturasAuxiliares(int vetorAux[])
 
   if (contador>0){
     for (i = 0; i < contador; i++){
-            for (j = i + 1; j < estrutura[posicao].quantidade_de_elementos; j++){
-              if (vetorAux[i] > vetorAux[j]){
-                auxiliar = vetorAux[i];
-                vetorAux[i] = vetorAux[j];
-                vetorAux[j] = auxiliar;
-              }
+      for (j = i + 1; j < contador; j++){
+        if (vetorAux[i] > vetorAux[j]){
+          auxiliar = vetorAux[i];
+          vetorAux[i] = vetorAux[j];
+          vetorAux[j] = auxiliar;
+        }
+      }
+    }
   }
-
+  
   if (contador > 0)
     retorno = SUCESSO;
   else
     retorno = TODAS_ESTRUTURAS_AUXILIARES_VAZIAS;
 
-
   return retorno;
-
-
-
-
-
-
-
-
-
-  
-    return retorno;
 }
 
 /*
