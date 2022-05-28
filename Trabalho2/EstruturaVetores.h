@@ -22,16 +22,16 @@ int excluirNumeroDoFinaldaEstrutura(int posicao);
 int excluirNumeroEspecificoDeEstrutura(int posicao, int valor);
 int getDadosEstruturaAuxiliar(int posicao, int vetorAux[]);
 int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[]);
-/*int getDadosDeTodasEstruturasAuxiliares(int vetorAux[]);
+int getDadosDeTodasEstruturasAuxiliares(int vetorAux[]);
 int getDadosOrdenadosDeTodasEstruturasAuxiliares(int vetorAux[]);
-int modificarTamanhoEstruturaAuxiliar(int posicao, int novoTamanho);
+/*nt modificarTamanhoEstruturaAuxiliar(int posicao, int novoTamanho);
 int getQuantidadeElementosEstruturaAuxiliar(int posicao);
 //No *montarListaEncadeadaComCabecote();
 void getDadosListaEncadeadaComCabecote(No *inicio, int vetorAux[]);
 void destruirListaEncadeadaComCabecote(No **inicio);
-
+*/
 void inicializar();
-void finalizar();
+/*void finalizar();
 void dobrar(int *x);
 
 */

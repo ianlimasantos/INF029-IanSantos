@@ -128,18 +128,18 @@ else
   {
     if (estrutura[posicao].quantidade_de_elementos > 0)
     {
-      for(i = 0, achei = 0; i < estrutura[posicao].quantidade_de_elementos && achei == 0 ; i++){
+      for(i = 0, achei = 0; i < estrutura[posicao].quantidade_de_elementos && achei == 0; i++){
         if (valor == estrutura[posicao].vetorPrincipal[i])
           achei = 1;   
           
       }
-
-      if (achei = 1)
+      
+      if (achei == 1)
       {
       /*preservo o valor do i de cima*/
-        for (  ; i < estrutura[posicao].quantidade_de_elementos; i++){
+        for ( i = i-1; i < estrutura[posicao].quantidade_de_elementos; i++){
           estrutura[posicao].vetorPrincipal[i] = estrutura[posicao].vetorPrincipal[i+1];
-          printf (" valor: %d  ----", estrutura[posicao].vetorPrincipal[i]);
+          //printf (" valor: %d  ----", estrutura[posicao].vetorPrincipal[i]);
         }
           estrutura[posicao].quantidade_de_elementos--;
           retorno = SUCESSO;
@@ -149,11 +149,11 @@ else
               // VOU FAZER A BUSCA
               // SE A BUSCA  = NUMERO, ACHEI
               // SENÃO, NUMERO_INEXISTENTE
-      }
-      else
-      {
-        retorno = ESTRUTURA_AUXILIAR_VAZIA;
-      }
+    }
+    else
+    {
+      retorno = ESTRUTURA_AUXILIAR_VAZIA;
+    }
           
   } 
   else
@@ -251,7 +251,7 @@ int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[])
             // ordenação
             for (i = 0; i < estrutura[posicao].quantidade_de_elementos; i++){
             for (j = i + 1; j < estrutura[posicao].quantidade_de_elementos; j++){
-              if ( vetorAux[i] > vetorAux[j]){
+              if (vetorAux[i] > vetorAux[j]){
                 auxiliar = vetorAux[i];
                 vetorAux[i] = vetorAux[j];
                 vetorAux[j] = auxiliar;
@@ -279,29 +279,99 @@ os números devem ser armazenados em vetorAux
 Rertono (int)
     SUCESSO - recuperado com sucesso os valores da estrutura na posição 'posicao'
     TODAS_ESTRUTURAS_AUXILIARES_VAZIAS - todas as estruturas auxiliares estão vazias
-
+*/
 int getDadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
 
-    int retorno = 0;
-    return retorno;
-}
+  int i, contador = 0;
+  int j, retorno;
+  
+  for (i = 0; i<TAM; i++){
 
+    if (estrutura[i].vetorPrincipal != NULL){
+      
+      if (estrutura[i].quantidade_de_elementos > 0){
+       // for para fazer o vetor auxiliar assumir os valores
+        for (j = 0; j < estrutura[i].quantidade_de_elementos; j++){
+          vetorAux[contador] = estrutura[i].vetorPrincipal[j];
+          contador++;
+        }
+      }
+    }
+      
+  }
+
+  if (contador > 0)
+    retorno = SUCESSO;
+  else
+    retorno = TODAS_ESTRUTURAS_AUXILIARES_VAZIAS;
+
+
+  return retorno;
+
+}
+  
+/*
 
 Objetivo: retorna os números ordenados de todas as estruturas auxiliares.
 os números devem ser armazenados em vetorAux
 Rertono (int)
     SUCESSO - recuperado com sucesso os valores da estrutura na posição 'posicao'
     TODAS_ESTRUTURAS_AUXILIARES_VAZIAS - todas as estruturas auxiliares estão vazias
+*/ 
 
 int getDadosOrdenadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
 
-    int retorno = 0;
+  int i, contador = 0;
+  int j, retorno = 0;
+  
+  for (i = 0; i<TAM; i++){
+
+    if (estrutura[i].vetorPrincipal != NULL){
+      
+      if (estrutura[i].quantidade_de_elementos > 0){
+       // for para fazer o vetor auxiliar assumir os valores
+        for (j = 0; j < estrutura[i].quantidade_de_elementos; j++){
+          vetorAux[contador] = estrutura[i].vetorPrincipal[j];
+          contador++;
+        }
+      }
+    }
+      
+  }
+
+  if (contador>0){
+    for (i = 0; i < contador; i++){
+            for (j = i + 1; j < estrutura[posicao].quantidade_de_elementos; j++){
+              if (vetorAux[i] > vetorAux[j]){
+                auxiliar = vetorAux[i];
+                vetorAux[i] = vetorAux[j];
+                vetorAux[j] = auxiliar;
+              }
+  }
+
+  if (contador > 0)
+    retorno = SUCESSO;
+  else
+    retorno = TODAS_ESTRUTURAS_AUXILIARES_VAZIAS;
+
+
+  return retorno;
+
+
+
+
+
+
+
+
+
+  
     return retorno;
 }
 
-
+/*
 Objetivo: modificar o tamanho da estrutura auxiliar da posição 'posicao' para o novo tamanho 'novoTamanho' + tamanho atual
 Suponha o tamanho inicial = x, e novo tamanho = n. O tamanho resultante deve ser x + n. Sendo que x + n deve ser sempre >= 1
 Rertono (int)
@@ -316,6 +386,8 @@ int modificarTamanhoEstruturaAuxiliar(int posicao, int novoTamanho)
 
     int retorno = 0;
     return retorno;
+
+  vetorPrincipal[pos].vetorAuxiliar = realloc(vetorPrincipal[pos].vetorAuxiliar, sizeof(novotamanho+tam * int))
 }
 
 
