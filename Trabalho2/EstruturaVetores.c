@@ -366,21 +366,53 @@ Objetivo: modificar o tamanho da estrutura auxiliar da posição 'posicao' para 
 Suponha o tamanho inicial = x, e novo tamanho = n. O tamanho resultante deve ser x + n. Sendo que x + n deve ser sempre >= 1
 Rertono (int)
     SUCESSO - foi modificado corretamente o tamanho da estrutura auxiliar
-    SEM_ESTRUTURA_AUXILIAR - Não tem estrutura auxiliar
-    POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
-    NOVO_TAMANHO_INVALIDO - novo tamanho não pode ser negativo
+   ok SEM_ESTRUTURA_AUXILIAR - Não tem estrutura auxiliar
+    ok POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
+    ok NOVO_TAMANHO_INVALIDO - novo tamanho não pode ser negativo
     SEM_ESPACO_DE_MEMORIA - erro na alocação do novo valor
-
+*/
 int modificarTamanhoEstruturaAuxiliar(int posicao, int novoTamanho)
 {
 
     int retorno = 0;
+
+    novoTamanho = novoTamanho + estrutura[posicao].tamanho;
+
+    if (posicao>10 || posicao<1)
+        retorno = POSICAO_INVALIDA;
+    else
+    {
+      // testando se o tamanho é válido
+      if (novoTamanho < 1){
+        retorno = NOVO_TAMANHO_INVALIDO;
+        return retorno;
+      }
+        // testar se existe a estrutura auxiliar
+        if (estrutura[posicao].vetorPrincipal != NULL)
+        {
+         estrutura[posicao].vetorPrincipal = realloc(estrutura[posicao].vetorPrincipal, (novoTamanho * sizeof(int)));
+          if (!estrutura[posicao].vetorPrincipal)
+            retorno = SEM_ESPACO_DE_MEMORIA;
+          else{
+            estrutura[posicao].tamanho = novoTamanho;
+            if (estrutura[posicao].tamanho < estrutura[posicao].quantidade_de_elementos)
+              estrutura[posicao].quantidade_de_elementos = estrutura[posicao].tamanho;
+            retorno = SUCESSO;
+          }
+            
+        }       
+         else
+          retorno = SEM_ESTRUTURA_AUXILIAR;
+    }
+
+
+
     return retorno;
 
-  vetorPrincipal[pos].vetorAuxiliar = realloc(vetorPrincipal[pos].vetorAuxiliar, sizeof(novotamanho+tam * int))
+  //vetorPrincipal[pos].vetorAuxiliar = realloc(vetorPrincipal[pos].vetorAuxiliar, sizeof(novotamanho+tam * int))
 }
 
-
+/*
 Objetivo: retorna a quantidade de elementos preenchidos da estrutura auxiliar da posição 'posicao'.
 Retorno (int)
     POSICAO_INVALIDA - posição inválida
@@ -388,15 +420,49 @@ Retorno (int)
     ESTRUTURA_AUXILIAR_VAZIA - estrutura auxiliar vazia
     Um número int > 0 correpondente a quantidade de elementos preenchidos da estrutura
 
+
 int getQuantidadeElementosEstruturaAuxiliar(int posicao)
 {
 
     int retorno = 0;
 
+    if (posicao>10 || posicao<1)
+        retorno = POSICAO_INVALIDA;
+    else
+    {
+      // testando se o tamanho é válido
+      if (novoTamanho < 1){
+        retorno = NOVO_TAMANHO_INVALIDO;
+        return retorno;
+      }
+        // testar se existe a estrutura auxiliar
+        if (estrutura[posicao].vetorPrincipal != NULL)
+        {
+         estrutura[posicao].vetorPrincipal = realloc(estrutura[posicao].vetorPrincipal, (novoTamanho * sizeof(int)));
+          if (!estrutura[posicao].vetorPrincipal)
+            retorno = SEM_ESPACO_DE_MEMORIA;
+          else{
+            estrutura[posicao].tamanho = novoTamanho;
+            if (estrutura[posicao].tamanho < estrutura[posicao].quantidade_de_elementos)
+              estrutura[posicao].quantidade_de_elementos = estrutura[posicao].tamanho;
+            retorno = SUCESSO;
+          }
+            
+        }       
+         else
+          retorno = SEM_ESTRUTURA_AUXILIAR;
+    }
+
+
+
+
+
+
+  
     return retorno;
 }
 
-
+/*
 Objetivo: montar a lista encadeada com cabeçote com todos os números presentes em todas as estruturas.
 Retorno (No*)
     NULL, caso não tenha nenhum número nas listas

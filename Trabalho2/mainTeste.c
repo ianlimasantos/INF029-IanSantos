@@ -16,8 +16,8 @@ void testeExcluir();
 void testeExcluirNumeroEspecifico();
 void testeListar();
 void testeRetornarTodosNumeros();
-/*void testeMudarTamanhoEstrutura();
-void testeListaEncadeada();
+void testeMudarTamanhoEstrutura();
+/*void testeListaEncadeada();
 */
 
 int main()
@@ -30,8 +30,8 @@ int main()
     testeExcluirNumeroEspecifico();
     testeListar();
     testeRetornarTodosNumeros();
-    /*testeMudarTamanhoEstrutura();
-    testeListaEncadeada();
+    testeMudarTamanhoEstrutura();
+  /*  testeListaEncadeada();
     finalizar();
 */
 }
@@ -219,18 +219,18 @@ void testeRetornarTodosNumeros()
     printf("%d\n", vet[6] == 6);
     printf("%d\n", vet[7] == 27);
     printf("%d\n", vet[8] == -6);
-//*/
+
  
 }
-//*/
+
 /* 
 2 [3,8,0]
 5 [1,34,12,6,27,-6, , , , ]
-
+*/
 
 
 int modificarTamanhoEstruturaAuxiliar(int posicao, int novoTamanho);
-Objetivo: modificar o tamanho da estrutura auxiliar da posição 'posicao' para o novo tamanho 'novoTamanho' + tamanho atual
+/*Objetivo: modificar o tamanho da estrutura auxiliar da posição 'posicao' para o novo tamanho 'novoTamanho' + tamanho atual
 Suponha o tamanho inicial = x, e novo tamanho = n. O tamanho resultante deve ser x + n. Sendo que x + n deve ser sempre >= 1
 Rertono (int)
     SUCESSO - foi modificado corretamente o tamanho da estrutura auxiliar
@@ -238,7 +238,7 @@ Rertono (int)
     POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
     NOVO_TAMANHO_INVALIDO - novo tamanho não pode ser negativo
     SEM_ESPACO_DE_MEMORIA - erro na alocação do novo valor
-
+*/
 void testeMudarTamanhoEstrutura()
 {
     show_log("testeMudarTamanhoEstrutura()");
@@ -251,13 +251,13 @@ void testeMudarTamanhoEstrutura()
 
     //modificar para tamanho de 3 para 1
     printf("%d\n", modificarTamanhoEstruturaAuxiliar(2, -2) == SUCESSO);
-    printf("%d\n", getQuantidadeElementosEstruturaAuxiliar(2) == 1);
+  //  printf("%d\n", getQuantidadeElementosEstruturaAuxiliar(2) == 1);
     printf("%d\n", getDadosEstruturaAuxiliar(2, vet) == SUCESSO);
     printf("%d\n", vet[0] == 3);
 
     //modificar para tamanho de 1 para 4
     printf("%d\n", modificarTamanhoEstruturaAuxiliar(2, 3) == SUCESSO);
-    printf("%d\n", getQuantidadeElementosEstruturaAuxiliar(2) == 1);
+   // printf("%d\n", getQuantidadeElementosEstruturaAuxiliar(2) == 1);
     printf("%d\n", getDadosEstruturaAuxiliar(2, vet) == SUCESSO);
     printf("%d\n", vet[0] == 3);
 
@@ -267,7 +267,7 @@ void testeMudarTamanhoEstrutura()
     printf("%d\n", inserirNumeroEmEstrutura(2, 5) == SEM_ESPACO);
 }
 
-
+/*
 2 [3,4,-2,6]
 5 [1,34,12,6,27,-6, , , , ]
 
