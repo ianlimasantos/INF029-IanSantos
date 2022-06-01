@@ -25,8 +25,8 @@ int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[]);
 int getDadosDeTodasEstruturasAuxiliares(int vetorAux[]);
 int getDadosOrdenadosDeTodasEstruturasAuxiliares(int vetorAux[]);
 int modificarTamanhoEstruturaAuxiliar(int posicao, int novoTamanho);
-/*int getQuantidadeElementosEstruturaAuxiliar(int posicao);
-//No *montarListaEncadeadaComCabecote();
+int getQuantidadeElementosEstruturaAuxiliar(int posicao);
+/*No *montarListaEncadeadaComCabecote();
 void getDadosListaEncadeadaComCabecote(No *inicio, int vetorAux[]);
 void destruirListaEncadeadaComCabecote(No **inicio);
 */

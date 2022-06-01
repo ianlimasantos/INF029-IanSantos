@@ -415,11 +415,11 @@ int modificarTamanhoEstruturaAuxiliar(int posicao, int novoTamanho)
 /*
 Objetivo: retorna a quantidade de elementos preenchidos da estrutura auxiliar da posição 'posicao'.
 Retorno (int)
-    POSICAO_INVALIDA - posição inválida
-    SEM_ESTRUTURA_AUXILIAR - sem estrutura auxiliar
+    ok POSICAO_INVALIDA - posição inválida
+    ok SEM_ESTRUTURA_AUXILIAR - sem estrutura auxiliar
     ESTRUTURA_AUXILIAR_VAZIA - estrutura auxiliar vazia
     Um número int > 0 correpondente a quantidade de elementos preenchidos da estrutura
-
+*/
 
 int getQuantidadeElementosEstruturaAuxiliar(int posicao)
 {
@@ -430,35 +430,19 @@ int getQuantidadeElementosEstruturaAuxiliar(int posicao)
         retorno = POSICAO_INVALIDA;
     else
     {
-      // testando se o tamanho é válido
-      if (novoTamanho < 1){
-        retorno = NOVO_TAMANHO_INVALIDO;
-        return retorno;
-      }
         // testar se existe a estrutura auxiliar
         if (estrutura[posicao].vetorPrincipal != NULL)
         {
-         estrutura[posicao].vetorPrincipal = realloc(estrutura[posicao].vetorPrincipal, (novoTamanho * sizeof(int)));
-          if (!estrutura[posicao].vetorPrincipal)
-            retorno = SEM_ESPACO_DE_MEMORIA;
-          else{
-            estrutura[posicao].tamanho = novoTamanho;
+          if (estrutura[posicao].quantidade_de_elementos > 0){
             if (estrutura[posicao].tamanho < estrutura[posicao].quantidade_de_elementos)
               estrutura[posicao].quantidade_de_elementos = estrutura[posicao].tamanho;
-            retorno = SUCESSO;
+              retorno = estrutura[posicao].quantidade_de_elementos;
           }
-            
-        }       
-         else
+          else 
+            retorno = ESTRUTURA_AUXILIAR_VAZIA;
+        }else
           retorno = SEM_ESTRUTURA_AUXILIAR;
-    }
-
-
-
-
-
-
-  
+    } 
     return retorno;
 }
 
