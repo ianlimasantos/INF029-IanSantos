@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #define TAM 10
@@ -447,48 +448,135 @@ int getQuantidadeElementosEstruturaAuxiliar(int posicao)
 }
 
 /*
+typedef struct reg {
+    int conteudo;
+    struct reg *prox;
+} No;*/
+/*
+void inserirNaLista(int valor){
+  no *novo,;
+  novo = (No*) malloc(sizeof(no));
+  novo->conteudo = valor;
+  novo->prox = NULL;
+  
+  if (cabecote == NULL)
+  {
+    no = cabecote;
+    cabecote = novo;
+    atual = cabecote;
+  }
+  else{
+    do{
+      
+    }while (atual->prox!=NULL)
+  }
+
+  
+}
+*/
+
+No* criarElemento(int valor){
+	No *novo = (No *)malloc(sizeof(No));
+	if(novo == NULL){
+        printf("Falta Memoria\n");
+        exit(1);
+	}
+	novo->conteudo = valor;
+	novo->prox = NULL;
+	return novo;
+}
+
+
+void inserirNoFinalComCabecote(No *inicio, int val){
+
+	No* tmp;
+	No* novo = criarElemento(val);
+
+	if(inicio->prox == NULL){
+		inicio->prox = novo;
+	}
+	else{
+		tmp = inicio->prox;
+
+		while(tmp->prox != NULL)
+			tmp = tmp->prox;
+
+		tmp->prox = novo;
+	}
+}
+
+
+/*
 Objetivo: montar a lista encadeada com cabeçote com todos os números presentes em todas as estruturas.
 Retorno (No*)
     NULL, caso não tenha nenhum número nas listas
     No*, ponteiro para o início da lista com cabeçote
+*/
 
 No *montarListaEncadeadaComCabecote()
 {
+  int i, j, retorno, contador;
+  No *cabecote = (No*) malloc(sizeof(No));  
+  
+  
+  for (i = 0; i < TAM; i++){
+    if (estrutura[i].vetorPrincipal != NULL){
+      if (estrutura[i].quantidade_de_elementos > 0){
+        contador++;
+       // for para fazer a lista encadeada assumir os valores
+        for (j = 0; j < estrutura[i].quantidade_de_elementos; j++)
+        {
+          inserirNoFinalComCabecote(cabecote, estrutura[i].vetorPrincipal[j]); 
+        }
+      }
+    }
+      
+  }
 
+  if (contador > 0)
+    return cabecote;
+  else
     return NULL;
 }
 
 
-Objetivo: retorna os números da lista enceada com cabeçote armazenando em vetorAux.
+/*Objetivo: retorna os números da lista enceada com cabeçote armazenando em vetorAux.
 Retorno void
-
+*/
 void getDadosListaEncadeadaComCabecote(No *inicio, int vetorAux[])
 {
+  No *p;
+  int index = 0;
+  for (p = inicio->prox; p != NULL; p = p->prox)
+    vetorAux[index++] = p->conteudo; 
 }
 
 
-Objetivo: Destruir a lista encadeada com cabeçote a partir de início.
+/*Objetivo: Destruir a lista encadeada com cabeçote a partir de início.
 O ponteiro inicio deve ficar com NULL.
 Retorno 
     void.
-
+*/
 void destruirListaEncadeadaComCabecote(No **inicio)
 {
+  No* atual = *inicio;
+	No* tmp;
+
+	while(atual != NULL){
+		tmp = atual->prox;
+		free(atual);
+		atual = tmp;
+	}
+
+  *inicio = NULL;
 }
 
 
-Objetivo: inicializa o programa. deve ser chamado ao inicio do programa 
 
-
-void inicializar()
-{
-}
-
-
-Objetivo: finaliza o programa. deve ser chamado ao final do programa 
+/*Objetivo: finaliza o programa. deve ser chamado ao final do programa 
 para poder liberar todos os espaços de memória das estruturas auxiliares.
-
-
+*/
+/*
 void finalizar()
 {
 }

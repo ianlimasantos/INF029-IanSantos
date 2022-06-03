@@ -17,8 +17,8 @@ void testeExcluirNumeroEspecifico();
 void testeListar();
 void testeRetornarTodosNumeros();
 void testeMudarTamanhoEstrutura();
-/*void testeListaEncadeada();
-*/
+void testeListaEncadeada();
+
 
 int main()
 {
@@ -31,9 +31,9 @@ int main()
     testeListar();
     testeRetornarTodosNumeros();
     testeMudarTamanhoEstrutura();
-  /*  testeListaEncadeada();
-    finalizar();
-*/
+   testeListaEncadeada();
+  //finalizar();
+
 }
 
 int ligado = 1;
@@ -271,6 +271,7 @@ void testeMudarTamanhoEstrutura()
 2 [3,4,-2,6]
 5 [1,34,12,6,27,-6, , , , ]
 
+*/
 
 void testeListaEncadeada()
 {
@@ -294,4 +295,3 @@ void testeListaEncadeada()
 
     printf("%d\n", inicio == NULL);
 }
-  */
