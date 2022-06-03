@@ -576,8 +576,12 @@ void destruirListaEncadeadaComCabecote(No **inicio)
 /*Objetivo: finaliza o programa. deve ser chamado ao final do programa 
 para poder liberar todos os espaços de memória das estruturas auxiliares.
 */
-/*
+
 void finalizar()
 {
+  int i;
+  for (i = 0; i < TAM; i++){
+    if (estrutura[i].vetorPrincipal != NULL)
+        free (estrutura[i].vetorPrincipal);
+    }
 }
-*/
