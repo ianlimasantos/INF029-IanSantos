@@ -5,9 +5,9 @@
 // as suas constantes, para mais informacoes https://en.cppreference.com/w/c/language/enum
 // as constantes do enum em sua inicialização vao representar o numero resultante da soma do valor da
 // constante anterior mais 1, caso nao haja valor algum na primeira constante ela vai ser inicializada com 0
-enum { TODAS_ESTRUTURAS_AUXILIARES_VAZIAS = -11, NOVO_TAMANHO_INVALIDO = 1, NUMERO_INEXISTENTE = 2,
-       ESTRUTURA_AUXILIAR_VAZIA = 3, TAMANHO_INVALIDO = 4 , SEM_ESPACO_DE_MEMORIA = 5, POSICAO_INVALIDA = 6,
-       JA_TEM_ESTRUTURA_AUXILIAR = 7, SEM_ESTRUTURA_AUXILIAR = 8, SEM_ESPACO = 9, SUCESSO = 10};
+enum { TODAS_ESTRUTURAS_AUXILIARES_VAZIAS = -11, NOVO_TAMANHO_INVALIDO = -10, NUMERO_INEXISTENTE = -9,
+       ESTRUTURA_AUXILIAR_VAZIA = -8, TAMANHO_INVALIDO = -7 , SEM_ESPACO_DE_MEMORIA = -6, POSICAO_INVALIDA = -5,
+       JA_TEM_ESTRUTURA_AUXILIAR = -4, SEM_ESTRUTURA_AUXILIAR = -3, SEM_ESPACO = -2, SUCESSO = -1};
 
 typedef struct reg {
     int conteudo;
@@ -32,7 +32,7 @@ void destruirListaEncadeadaComCabecote(No **inicio);
 
 void inicializar();
 void finalizar();
-//void dobrar(int *x);
+void dobrar(int *x);
 
 
 #endif  // TRABALHO2_ESTRUTURAVETORES_H
