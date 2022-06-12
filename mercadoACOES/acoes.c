@@ -96,7 +96,6 @@ void listarElementos(No* inicio){
 	printf ("lista\n");
   for (p = inicio; p != NULL; p = p->proximo)
     printf ("Valor: %d - Quantidade: %d\n", p->valor, p->quantidade);
-    
   
 }
 
