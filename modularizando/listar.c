@@ -19,6 +19,8 @@ int menu_listar(){
 
 void listarElementos(No* inicio, No* outroinicio, char nome[]){
 	No *p;
+
+  
 	printf ("AÇÕES A VENDA \n\n");
     printf (" Nome    Modalidade   Quantidade   Valor \n");
   for (p = inicio; p != NULL; p = p->proximo){
@@ -28,5 +30,5 @@ void listarElementos(No* inicio, No* outroinicio, char nome[]){
 	printf ("OFERTAS PARA COMPRAR \n\n");
     printf (" Nome    Modalidade   Quantidade   Valor \n");
   for (p = outroinicio; p != NULL; p = p->proximo)
-    printf ("Valor: %d - Quantidade: %d\n", p->valor, p->quantidade);
+     printf (" %s        V           %d         %d\n", nome, p->quantidade, p->valor);
 }

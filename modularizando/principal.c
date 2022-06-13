@@ -10,7 +10,8 @@ int menu_compra();
 int menu_venda();
 No* criarElemento();
 int menu_listar();
-void inserirNoFinalSemCabecote(No **inicioSemCabecote); 
+void inserirparaVENDER(No **inicioSemCabecote);
+void inserir_oferta_para_COMPRAR(No **inicioSemCabecote);
 
 int main(){
    
@@ -71,14 +72,13 @@ int main(){
                           printf("Voltar\n");
                           break;
                   }
-                }while (menu_comp!=4);
+                }while (menu_vend!=4);
               break;
           case 3:
             do{
                 opcao_listar = menu_listar();
                 switch (opcao_listar)
                 {
-
                     case 1:
                         listarElementos(inicioListaPetr4Compra, inicioListaPetr4Venda, string1);
                         break;

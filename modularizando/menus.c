@@ -7,7 +7,7 @@ int menu_principal (){
     int resposta_principal;
     printf ("## ESCOLHA A OPÇÃO DESEJADA ##\n");
     printf("1 - Cadastrar ações para venda.\n");
-    printf("2 - Cadastrar ações para compra.\n");
+    printf("2 - Cadastrar ofertas de compra.\n");
     printf("3 - Listar títulos.\n");
     printf("4 - Sair.\n");
     scanf("%d", &resposta_principal);

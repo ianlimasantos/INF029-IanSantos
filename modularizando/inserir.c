@@ -23,14 +23,17 @@ void inserirparaVENDER(No **inicioSemCabecote){
       atual = atual->proximo;
     }
     novo->proximo = atual;
-    anterior->proximo = novo; 
+    anterior->proximo = novo;
+     
   }
+    
   }
 
 void inserir_oferta_para_COMPRAR(No **inicioSemCabecote){
   No *novo;
   No *atual;
   No *anterior;
+
 
   novo = criarElemento();
 
@@ -45,10 +48,14 @@ void inserir_oferta_para_COMPRAR(No **inicioSemCabecote){
       anterior = atual;
       atual = atual->proximo;
     }
+    
     novo->proximo = atual;
     anterior->proximo = novo; 
   }
-  }
+
+  
+  //if ()  
+}
 
 No* criarElemento(){
   int valor, quantidade;
