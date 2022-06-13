@@ -16,8 +16,16 @@ int main(){
    
   int menu_princ;
   int menu_comp, menu_vend, opcao_listar;
+  char string1[] = "PETR4";
+  char string2[] = "VALE5";
+  char string3[] = "LAME3";
    
   No *inicioListaPetr4Compra = NULL;
+  No *inicioListaVALE5Compra = NULL;
+  No *inicioListaLAME3Compra = NULL;
+  No *inicioListaPetr4Venda = NULL;
+  No *inicioListaVALE5Venda = NULL;
+  No *inicioListaLAME3Venda = NULL;
    
   do{
       menu_princ = menu_principal();
@@ -29,16 +37,16 @@ int main(){
                   switch (menu_comp)
                   {
                       case 1:
-                        inserirNoFinalSemCabecote(&inicioListaPetr4Compra);
+                        inserirparaVENDER(&inicioListaPetr4Compra);
                         break;
                       case 2:
-                        printf("Campo em construção\n");
+                        inserirparaVENDER(&inicioListaVALE5Compra);
                         break;
                       case 3:
-                        printf("Campo em construção\n");
+                        inserirparaVENDER(&inicioListaLAME3Compra);
                         break;
                       case 4:
-                        printf("Voltando...\n");
+                        printf("Voltar\n");
                         break;
                   }
                  
@@ -51,16 +59,16 @@ int main(){
                   {
 
                       case 1:
-                          printf("--Calma\n");
+                          inserir_oferta_para_COMPRAR (&inicioListaPetr4Venda);
                           break;
                       case 2:
-                          printf("--Campo em construção\n");
+                          inserir_oferta_para_COMPRAR (&inicioListaVALE5Venda);
                           break;
                       case 3:
-                          printf("--Campo em construção\n");
+                          inserir_oferta_para_COMPRAR (&inicioListaLAME3Venda);
                           break;
                       case 4:
-                          printf("--Voltando...\n");
+                          printf("Voltar\n");
                           break;
                   }
                 }while (menu_comp!=4);
@@ -72,16 +80,16 @@ int main(){
                 {
 
                     case 1:
-                        listarElementos(inicioListaPetr4Compra);
+                        listarElementos(inicioListaPetr4Compra, inicioListaPetr4Venda, string1);
                         break;
                     case 2:
-                        printf("--Campo em construção\n");
+                        listarElementos(inicioListaVALE5Compra, inicioListaVALE5Venda, string2);
                         break;
                     case 3:
-                        printf("--Campo em construção\n");
+                        listarElementos(inicioListaLAME3Compra, inicioListaLAME3Venda, string3);
                         break;
                     case 4:
-                        printf("--Voltando...\n");
+                        printf("Voltar\n");
                         break;
                 }
               }while (opcao_listar != 4);

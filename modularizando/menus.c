@@ -32,7 +32,7 @@ int menu_compra (){
 int menu_venda (){
    
     int resposta_principal;
-    printf ("## ESCOLHA A OPÇÃO DESEJADA -  VENDA ##");
+    printf ("## ESCOLHA A OPÇÃO DESEJADA -  VENDA ##\n");
     printf("1 - Cadastrar PETR4.\n");
     printf("2 - Cadastrar VALE5.\n");
     printf("3 - Cadastrar LAME3.\n");
