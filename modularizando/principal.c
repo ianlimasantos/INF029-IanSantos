@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include "acoes.h"
 
-// gcc principal.c menus.c listar.c inserir.c -o mercadoacoes
+// gcc principal.c operacao.c menus.c listar.c inserir.c -o mercado
+
 
 
 int menu_principal();
@@ -12,6 +13,7 @@ No* criarElemento();
 int menu_listar();
 void inserirparaVENDER(No **inicioSemCabecote);
 void inserir_oferta_para_COMPRAR(No **inicioSemCabecote);
+void realizar_operacao(No **vendendo, No **comprando);
 
 int main(){
    
@@ -61,6 +63,7 @@ int main(){
 
                       case 1:
                           inserir_oferta_para_COMPRAR (&inicioListaPetr4Venda);
+                          realizar_operacao(&inicioListaPetr4Venda, &inicioListaPetr4Compra);
                           break;
                       case 2:
                           inserir_oferta_para_COMPRAR (&inicioListaVALE5Venda);
@@ -81,6 +84,7 @@ int main(){
                 {
                     case 1:
                         listarElementos(inicioListaPetr4Compra, inicioListaPetr4Venda, string1);
+                      
                         break;
                     case 2:
                         listarElementos(inicioListaVALE5Compra, inicioListaVALE5Venda, string2);

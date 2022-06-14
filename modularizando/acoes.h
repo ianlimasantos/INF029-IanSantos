@@ -15,5 +15,6 @@ void listarElementos(No* inicio, No* outroinicio, char nome[]);
 void inserirparaVENDER(No **inicioSemCabecote);
 void inserir_oferta_para_COMPRAR(No **inicioSemCabecote);
 No* criarElemento();
+void  realizar_operacao(No **vendendo, No **comprando);
 
 #endif

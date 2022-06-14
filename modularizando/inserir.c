@@ -53,8 +53,6 @@ void inserir_oferta_para_COMPRAR(No **inicioSemCabecote){
     anterior->proximo = novo; 
   }
 
-  
-  //if ()  
 }
 
 No* criarElemento(){
