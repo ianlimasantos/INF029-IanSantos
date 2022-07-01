@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-//gcc bolo.c -o bolo
+//gcc questao13.c -o q13
 
 void numero_decrescente (int numero){
   printf ("%d\n", numero);
@@ -21,4 +21,3 @@ int main(){
 
   return 0;
 }
-

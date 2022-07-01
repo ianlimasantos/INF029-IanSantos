@@ -21,13 +21,13 @@ void listarElementos(No* inicio, No* outroinicio, char nome[]){
 	No *p;
 
   
-	printf ("AÇÕES A VENDA \n\n");
+	printf ("AÇÕES PARA COMPRAR \n\n");
     printf (" Nome    Modalidade   Quantidade   Valor \n");
   for (p = inicio; p != NULL; p = p->proximo){
-    printf (" %s        V           %d         %d\n", nome, p->quantidade, p->valor);
+    printf (" %s        C           %d         %d\n", nome, p->quantidade, p->valor);
     }
   printf("\n \n");
-	printf ("OFERTAS PARA COMPRAR \n\n");
+	printf ("OFERTAS A VENDA \n\n");
     printf (" Nome    Modalidade   Quantidade   Valor \n");
   for (p = outroinicio; p != NULL; p = p->proximo)
      printf (" %s        V           %d         %d\n", nome, p->quantidade, p->valor);

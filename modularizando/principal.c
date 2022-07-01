@@ -2,9 +2,7 @@
 #include <stdlib.h>
 #include "acoes.h"
 
-// gcc principal.c operacao.c menus.c listar.c inserir.c -o mercado
-
-
+// gcc inserir.c listar.c menus.c operacao.c principal.c -o mercado
 
 int menu_principal();
 int menu_compra();
@@ -14,6 +12,8 @@ int menu_listar();
 void inserirparaVENDER(No **inicioSemCabecote);
 void inserir_oferta_para_COMPRAR(No **inicioSemCabecote);
 void realizar_operacao(No **vendendo, No **comprando);
+void excluirElemento(No** inicio, int valor);
+
 
 int main(){
    
@@ -36,46 +36,50 @@ int main(){
       {
           case 1:
             do{
-                  menu_comp = menu_compra();
-                  switch (menu_comp)
+                  menu_vend = menu_venda();
+             //   menu_comp = menu_compra();
+                  switch (menu_vend)
                   {
                       case 1:
-                        inserirparaVENDER(&inicioListaPetr4Compra);
+                        inserirparaVENDER(&inicioListaPetr4Venda);
                         break;
                       case 2:
-                        inserirparaVENDER(&inicioListaVALE5Compra);
+                        inserirparaVENDER(&inicioListaVALE5Venda);
                         break;
                       case 3:
-                        inserirparaVENDER(&inicioListaLAME3Compra);
+                        inserirparaVENDER(&inicioListaLAME3Venda);
                         break;
                       case 4:
                         printf("Voltar\n");
                         break;
                   }
                  
-              }while (menu_comp!=4);
+              }while (menu_vend!=4);
               break;
           case 2:
               do{
-                  menu_vend = menu_venda();
-                  switch (menu_vend)
+                  menu_comp = menu_compra();
+                  switch (menu_comp)
                   {
 
                       case 1:
-                          inserir_oferta_para_COMPRAR (&inicioListaPetr4Venda);
-                          realizar_operacao(&inicioListaPetr4Venda, &inicioListaPetr4Compra);
+                          inserir_oferta_para_COMPRAR (&inicioListaPetr4Compra);
+                          if (inicioListaPetr4Compra != NULL)
+                            realizar_operacao(&inicioListaPetr4Venda, &inicioListaPetr4Compra);
                           break;
                       case 2:
-                          inserir_oferta_para_COMPRAR (&inicioListaVALE5Venda);
+                          inserir_oferta_para_COMPRAR (&inicioListaVALE5Compra);
+                      if (inicioListaVALE5Compra != NULL)
+                        realizar_operacao(&inicioListaVALE5Venda, &inicioListaVALE5Compra);
                           break;
                       case 3:
-                          inserir_oferta_para_COMPRAR (&inicioListaLAME3Venda);
+                          inserir_oferta_para_COMPRAR (&inicioListaLAME3Compra);
                           break;
                       case 4:
                           printf("Voltar\n");
                           break;
                   }
-                }while (menu_vend!=4);
+                }while (menu_comp!=4);
               break;
           case 3:
             do{
