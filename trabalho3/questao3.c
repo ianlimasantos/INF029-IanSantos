@@ -1,74 +1,47 @@
 #include <stdio.h>
+#include <math.h>
 
-int inverterNumero (int digito, int cont);
-//gcc questao3.c -o questao3
+//gcc questao3.c -o q3 -lm
+
+int inverterNumero(int numero);
+int calcula_qtd_digitos(int numero);
+
 int main (){
-  int numero, numero_invertido;
+  int numero = 0, numero_invertido;
+  while(numero >= 0){
+    printf ("Digite o número:");
+    scanf ("%d", &numero);
   
-  printf ("Digite o número:");
-  scanf ("%d", &numero);
-
-  numero_invertido = inverterNumero(numero, 1);
-  printf ("O número invertido é: %d",   numero_invertido);
+    int loops = 0;
+    
+    numero_invertido = inverterNumero(numero);
+    printf ("O número invertido é: %d\n", numero_invertido);
+  }
   
 }
 
-int inverterNumero (int digito, int *cont){
-  int resto;
-  if (digito/10 == 0)
-    return digito % 10;
-  else{
-    *cont = *cont * 10;
-    resto = digito % 10;
-    digito = digito / 10;
-    return inverterNumero (digito, &cont) + resto * (*cont);
-  }
-}  
+int qtd_digitos = 0;
 
-/*
-int inverter (int digito){
-
-  int divisao, aux, invertido, resto;
-  int div_inteira, n = 0;
-
-  if (digito/10 == 0){
-    printf ("o valor do digito é %d\n", aux);
-    aux = digito%10;
-    printf ("o valor é %d\n", aux);
-    return aux;
-  }
-    
-  else{
-    while(digito!=0){
-      resto = digito
-      digito = digito/10;
-      printf ("o valor da divisão é %d\n", divisao);
-      div_inteira = digito%10;
-      printf ("o valor da divisão inteira é %d\n", div_inteira);
-      n++;
-    }
-    return div_inteira*n + inverter(digito);
-  }    
-}  
-  /*
-  if ()  
-    div_inteira += digito%10;
-    
-    contador++;
-
+int inverterNumero (int numero){
+  if (qtd_digitos == 0)
+    qtd_digitos = calcula_qtd_digitos(numero);  
   
-    123/10 = 12;
-    123%10 = 3
-    12/10 = 1
-    12%10 = 2
-    1/10 = 0
-    1%10 = 1
+  int resto;
+  if (numero/10 == 0){
+    qtd_digitos = 0;
+    return numero % 10;
+  }else{
+    resto = numero % 10;
+    numero = numero / 10;
+    return resto * pow(10, --qtd_digitos) + inverterNumero (numero);
+  }
+} 
 
-////////ERRADO
- divisao = digito/10; 
-  printf ("o valor da divisão é %d\n", divisao);
-  div_inteira = digito%10;
-  printf ("o valor da div_inteira é %d\n", div_inteira);
-  digito = divisao;
-  return div_inteira + inverter(digito);
-*/
+int calcula_qtd_digitos(int numero){
+  int contador = 1;
+  while (numero/10 > 0){
+    numero = numero / 10;
+    contador++;
+  }
+  return contador;
+}
